@@ -25,7 +25,6 @@ The CSS code for the project is divided into separate files:
 - `sidebar.css`: Contains styles for the sidebar, including its responsive behavior.
 - `video.css`: Contains styles for the video grid and video previews, including responsive adjustments.
 - `header.css`: Contains styles for the header, including the logo, search bar, and buttons.
-![tooltip](https://github.com/heyadrsh/youtube-homepage-clone/assets/97578938/09863afb-6af2-4c58-be04-fd517c06e5b8)
 
 ## Features
 
@@ -33,7 +32,7 @@ The CSS code for the project is divided into separate files:
 - Sidebar: The sidebar provides navigation links for various sections of YouTube.
 - Video grid: The main section displays a grid of video previews.
 - Tooltip: The channel pictures have a tooltip that displays additional information about the channel when hovered over.
-  
+  ![tooltip](https://github.com/heyadrsh/youtube-homepage-clone/assets/97578938/09863afb-6af2-4c58-be04-fd517c06e5b8)
 
 ## Usage
 
