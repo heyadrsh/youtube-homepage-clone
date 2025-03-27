@@ -103,11 +103,68 @@ document.addEventListener('DOMContentLoaded', function() {
   const thumbnailElements = document.querySelectorAll('.thumbnail-row');
   thumbnailElements.forEach(thumbnail => {
     thumbnail.addEventListener('mouseenter', function() {
-      thumbnail.style.transform = 'scale(1.05)';
-      thumbnail.style.transition = 'transform 0.3s ease';
+      // Only apply hover effects on non-touch devices
+      if (!isTouchDevice()) {
+        thumbnail.style.transform = 'scale(1.05)';
+        thumbnail.style.transition = 'transform 0.3s ease';
+      }
     });
     thumbnail.addEventListener('mouseleave', function() {
       thumbnail.style.transform = 'scale(1)';
     });
   });
-}); 
+  
+  // Mobile optimizations
+  if (isMobileDevice()) {
+    optimizeForMobile();
+  }
+  
+  // Listen for orientation changes
+  window.addEventListener('orientationchange', handleOrientationChange);
+});
+
+// Check if it's a touch device
+function isTouchDevice() {
+  return ('ontouchstart' in window) || 
+         (navigator.maxTouchPoints > 0) || 
+         (navigator.msMaxTouchPoints > 0);
+}
+
+// Check if the device is mobile based on screen size and user agent
+function isMobileDevice() {
+  return window.innerWidth <= 767 || 
+         /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+// Handle device orientation changes
+function handleOrientationChange() {
+  // Force a reload of lazy-loaded images that might become visible due to orientation change
+  setTimeout(function() {
+    window.dispatchEvent(new Event('scroll'));
+  }, 300);
+  
+  if (isMobileDevice()) {
+    optimizeForMobile();
+  }
+}
+
+// Apply mobile-specific optimizations
+function optimizeForMobile() {
+  // Limit animations for better performance
+  document.body.classList.add('mobile-device');
+  
+  // Make videos fit the screen width
+  const thumbnailRows = document.querySelectorAll('.thumbnail-row');
+  thumbnailRows.forEach(row => {
+    row.style.width = '100%';
+  });
+  
+  // Optimize touch targets for easier tapping
+  const clickableElements = document.querySelectorAll('a, button, .sidebar-link');
+  clickableElements.forEach(element => {
+    const computedStyle = window.getComputedStyle(element);
+    if (parseFloat(computedStyle.height) < 44) {
+      element.style.minHeight = '44px';
+    }
+  });
+} 

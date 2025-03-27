@@ -3,6 +3,10 @@ p {
     margin-bottom: 0;
   }
   
+  * {
+    box-sizing: border-box;
+  }
+  
   body {
     margin: 0;
     padding-top: 80px;
@@ -11,4 +15,26 @@ p {
     padding-bottom: 40px;
     background-color: #f5f5f5;
     font-family: Roboto, Arial;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Mobile optimizations */
+  @media (max-width: 767px) {
+    body {
+      padding-left: 16px;
+      padding-right: 16px;
+      padding-bottom: 80px; /* Extra padding for bottom mobile navigation */
+    }
+  }
+  
+  /* For really small screens */
+  @media (max-width: 480px) {
+    body {
+      padding-top: 60px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
   }

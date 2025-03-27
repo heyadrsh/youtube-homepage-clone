@@ -204,3 +204,56 @@
 .current-user-picture-container:hover .tooltip {
   opacity: 1;
 }
+
+/* Mobile optimizations */
+@media (max-width: 480px) {
+  .middle-section {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .hamburger-menu {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .voice-search-button {
+    display: none;
+  }
+  
+  .upload-icon-container,
+  .youtube-apps-icon-container {
+    display: none;
+  }
+  
+  .right-section {
+    width: auto;
+  }
+  
+  .search-bar::placeholder {
+    font-size: 14px;
+  }
+  
+  .tooltip {
+    display: none; /* Hide tooltips on mobile */
+  }
+}
+
+@media (max-width: 640px) {
+  .search-bar {
+    width: 100px;
+  }
+  
+  .middle-section {
+    max-width: 300px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .upload-icon-container,
+  .youtube-apps-icon-container {
+    display: none;
+  }
+}
