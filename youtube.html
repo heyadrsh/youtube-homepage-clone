@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>YouTube.com Clone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,6 +13,21 @@
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/video.css">
     <link rel="stylesheet" href="styles/sidebar.css">
+    
+    <!-- Preload critical SVGs -->
+    <link rel="preload" href="Icons/hamburger-menu.svg" as="image" type="image/svg+xml">
+    <link rel="preload" href="Icons/youtube-logo.svg" as="image" type="image/svg+xml">
+    <link rel="preload" href="Icons/search.svg" as="image" type="image/svg+xml">
+    
+    <style>
+      .lazy-load {
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .lazy-loaded {
+        opacity: 1;
+      }
+    </style>
   </head>
 
   <body>
@@ -85,16 +102,16 @@
         <div class="video-preview">
           <div class="thumbnail-row">
             <a href="https://www.youtube.com/watch?v=n2RNcPRtAiY">
-              <img class="thumbnail" src="thumbnails/thumbnail-1.webp">
+              <img class="thumbnail lazy-load" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3C/svg%3E" data-src="thumbnails/thumbnail-1.webp" alt="Talking Tech with Sundar Pichai" loading="lazy" width="300" height="169">
             </a>
             <div class="video-time">14:20</div>
           </div>
           <div class="video-info-grid">
             <div class="channel-picture-container">
-              <img class="profile-picture" src="channel-pictures/channel-1.jpeg">
+              <img class="profile-picture lazy-load" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="channel-pictures/channel-1.jpeg" alt="Marques Brownlee" loading="lazy" width="36" height="36">
               <div class="tooltip">
                 <div>
-                  <img class="profile-picture-tooltip" src="channel-pictures/channel-1.jpeg">
+                  <img class="profile-picture-tooltip lazy-load" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="channel-pictures/channel-1.jpeg" alt="Marques Brownlee" loading="lazy" width="43" height="43">
                 </div>
                 <div>
                   <div class="channel-name-tooltip">Marques Brownlee</div>
@@ -122,7 +139,7 @@
           <div class="thumbnail-row">
             <a href="https://www.youtube.com/watch?v=mP0RAo9SKZk">
               <img class="thumbnail" src="thumbnails/thumbnail-2.webp">
-              </a>
+            </a>
             <div class="video-time">8:22</div>
           </div>
           <div class="video-info-grid">
@@ -509,5 +526,7 @@
         </div>
       </section>
     </main>
+
+    <script src="scripts.js" defer></script>
   </body>
 </html>

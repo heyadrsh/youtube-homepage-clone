@@ -1,6 +1,11 @@
 .thumbnail {
     width: 100%;
     border-radius: 8px;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    /* Hardware acceleration */
+    transition: transform 0.2s ease-in-out;
   }
   
   .video-title {
@@ -22,8 +27,13 @@
   }
   
   .thumbnail-row {
-    margin-bottom: 8px;
     position: relative;
+    margin-bottom: 8px;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #f0f0f0; /* Placeholder color */
+    transform: translate3d(0, 0, 0);
   }
   
   .video-author,
